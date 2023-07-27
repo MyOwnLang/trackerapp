@@ -1,0 +1,95 @@
+<div class="progress">
+  <div class="progress-bar progress-bar-striped" style="width:70%">0 Items Remaining</div>
+</div>
+<div class="row">
+<div class="table-responsive col-md-6">
+<h6><span class="badge bg-secondary">Items Currently Being Processed</span></h6>
+<table class="table table-hover table-sm">
+  <thead>
+    <tr class = "table-primary">
+      <th scope="col">ItemId</th>
+      <th scope="col">Endtime</th>
+      <th scope="col">Domain</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of example | paginate : {currentPage:pageno, itemsPerPage : 50}">
+      <td><button type="button" class="btn btn-link" data-bs-toggle="modal" 
+        data-bs-target="#myModal">{{p["@Id"] | lowercase}}</button></td>
+      <td>2023-07-14T06:31:43</td>
+      <td>Document</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="table-responsive col-md-6">
+  <h6><span class="badge bg-secondary">Last Processed Items</span></h6>
+  <table class="table table-hover table-sm">
+    <thead>
+      <tr class = "table-primary">
+        <th scope="col">ItemId</th>
+        <th scope="col">Endtime</th>
+        <th scope="col">Domain</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of finaldata | paginate : {currentPage:pageno, itemsPerPage : 50}">
+        <td>
+          <!-- <button type="button" class="btn btn-link btn-sm" data-bs-toggle="modal" 
+          data-bs-target="#myModal">{{p["@Id"] | lowercase}}</button> -->
+          <a [routerLink]="['/ItemDetail', 'c037973e-ec68-4aea-947b-81609ba76689']" routerLinkActive="true">{{p["@Id"] | lowercase}}</a>
+        <td>2023-07-14T06:31:43</td>
+        <td>0.00.00.143</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<pagination-controls (pageChange)="pageno=$event"></pagination-controls>
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <table class="table table-hover table-sm">
+          <thead>
+            <tr class = "table-primary">
+              <th scope="col">ItemId</th>
+              <th scope="col">Endtime</th>
+              <th scope="col">Domain</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of finaldata | paginate : {currentPage:pageno, itemsPerPage : 50}">
+              <td><button type="button" class="btn btn-link btn-sm" data-bs-toggle="modal" 
+                data-bs-target="#myModal">{{p["@Id"] | lowercase}}</button>
+              <td>2023-07-14T06:31:43</td>
+              <td>0.00.00.143</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- <h3>Some text to enable scrolling..</h3>
+        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+        <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>  -->
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>

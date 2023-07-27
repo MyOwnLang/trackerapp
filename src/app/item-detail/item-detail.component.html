@@ -1,0 +1,26 @@
+<br>
+<table class="table table-hover table-sm">
+    <tr>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+    <tr *ngFor="let pcn of pcnArray">
+      <td>{{pcn["@Code"]}}</td>
+      <td>{{pcn["@Description"]}}</td>
+    </tr>
+  </table>
+  <br>
+  <table border="1px solid">
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+    </tr>
+    <tr *ngFor="let date of dates">
+      <td>{{date["Name"]}}</td>
+      <td>{{date["@Value"]}}</td>
+    </tr>
+  </table>
+  <br>
+  <span><strong>GlobalId: </strong>{{globalId}}</span><br>
+  <span><strong>FamilyId: </strong>{{familyId}}</span>
+  
